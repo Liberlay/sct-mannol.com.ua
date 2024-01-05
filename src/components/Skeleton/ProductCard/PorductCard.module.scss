@@ -1,0 +1,76 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  background-color: #1f2a44;
+  overflow: hidden;
+  .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 210px;
+    opacity: 0.25;
+    .skeletonImage {
+      height: 150px;
+      width: 70%;
+      padding: 20px;
+      border-radius: 16px;
+      animation: skeleton-loading 1s linear infinite alternate;
+    }
+  }
+  .bottom {
+    padding: 20px;
+    background-color: rgba(#000, 0.5);
+    .title {
+      height: 27.5px;
+      margin-bottom: 10px;
+      border-radius: 16px;
+      opacity: 0.25;
+      animation: skeleton-loading 1s linear infinite alternate;
+    }
+    .specification {
+      display: flex;
+      .skeletonSpecification {
+        display: flex;
+        flex: 1;
+        height: 21.5px;
+        margin: 0 5px 10px 0;
+        border-radius: 16px;
+        opacity: 0.25;
+        animation: skeleton-loading 1s linear infinite alternate;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+    .skeletonDescription {
+      height: 12px;
+      margin-bottom: 7px;
+      border-radius: 16px;
+      opacity: 0.25;
+      animation: skeleton-loading 1s linear infinite alternate;
+
+      &:last-child {
+        width: 80%;
+      }
+    }
+    .price {
+      width: 40%;
+      height: 20px;
+      border-radius: 16px;
+      opacity: 0.25;
+      animation: skeleton-loading 1s linear infinite alternate;
+    }
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}

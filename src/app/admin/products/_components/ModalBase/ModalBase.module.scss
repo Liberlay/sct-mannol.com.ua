@@ -1,0 +1,117 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    .skeleton {
+      margin-right: 10px;
+    }
+
+    .primary {
+      width: 20%;
+      height: 100px;
+      margin-right: 10px;
+      background-size: 100px 100px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 10px;
+    }
+  }
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+
+    .divider::before,
+    .divider::after {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .addOption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+
+      .defaultOption {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        margin-left: 40px;
+      }
+    }
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      .upload {
+        max-width: 20%;
+        :global(.ant-upload) {
+          width: 50px !important;
+          height: 50px !important;
+          margin-bottom: 0;
+        }
+
+        :global(.ant-upload-list-item-container) {
+          width: 50px !important;
+          height: 50px !important;
+          margin-bottom: 0;
+        }
+
+        :global(.ant-upload-list-item-uploading .ant-upload-list-item-thumbnail) {
+          display: none !important;
+        }
+
+        :global(.ant-upload-list-item-progress) {
+          bottom: unset !important;
+        }
+
+        :global(.ant-upload-list-item-name) {
+          display: none !important;
+        }
+
+        :global(.ant-upload-list-item-actions a) {
+          display: none !important;
+        }
+
+        :global(.ant-upload-list-item-thumbnail svg) {
+          display: none;
+        }
+        &.hidden {
+          :global(.ant-upload-select) {
+            display: none;
+          }
+        }
+      }
+
+      .optionInput {
+        flex: 1;
+
+        &:nth-child(2) {
+          flex: 2;
+        }
+      }
+
+      .deleteOption {
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          color: #e76f6d;
+        }
+      }
+    }
+  }
+}

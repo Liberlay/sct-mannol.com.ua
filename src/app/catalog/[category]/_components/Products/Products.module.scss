@@ -1,0 +1,134 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-height: calc(100vh - 80px);
+  padding: 30px 50px;
+
+  @media screen and (max-width: 1050px) {
+    padding: 30px;
+  }
+
+  @media screen and (max-width: 650px) {
+    padding: 30px 15px;
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (max-width: 1050px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    @media screen and (max-width: 650px) {
+      align-items: center;
+    }
+
+    .productType {
+      flex: 1;
+      min-width: 0;
+      margin-right: 15px;
+
+      @media screen and (max-width: 485px) {
+        width: 100vw;
+      }
+    }
+  }
+
+  .catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+    gap: 20px;
+
+    @media screen and (max-width: 800px) {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    @media screen and (max-width: 650px) {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-column: 1 / -1;
+      height: 250px;
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.2);
+
+      .ldsRing {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+      }
+
+      .ldsRing div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border: 8px solid #fcc917;
+        border-radius: 50%;
+        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: #fcc917 transparent transparent transparent;
+      }
+
+      .ldsRing div:nth-child(1) {
+        animation-delay: -0.45s;
+      }
+
+      .ldsRing div:nth-child(2) {
+        animation-delay: -0.3s;
+      }
+
+      .ldsRing div:nth-child(3) {
+        animation-delay: -0.15s;
+      }
+
+      @keyframes lds-ring {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+
+    .notFound {
+      font-size: 24px;
+    }
+  }
+
+  .pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0;
+    font-size: 24px;
+
+    .loadMore {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+
+      .icon {
+        font-size: 35px;
+        color: #fcc917;
+      }
+    }
+  }
+}

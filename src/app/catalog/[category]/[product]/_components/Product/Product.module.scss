@@ -1,0 +1,204 @@
+.container {
+  display: flex;
+  gap: 30px;
+  margin: 30px 50px;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 15px;
+  }
+
+  .wrapperLeft {
+    @media screen and (max-width: 800px) {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .slider {
+      width: 500px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 16px;
+
+      @media screen and (max-width: 1050px) {
+        width: 350px;
+      }
+
+      @media screen and (max-width: 800px) {
+        width: calc(100% - 100px);
+      }
+
+      .image {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        object-fit: contain;
+      }
+
+      :global(.slick-dots) {
+        button::before {
+          font-size: 12px;
+          color: #fcc917;
+        }
+      }
+    }
+  }
+
+  .wrapperRight {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+
+    @media screen and (max-width: 800px) {
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .vendorCodeWrapper {
+      display: flex;
+
+      .vendorCode {
+        padding: 10px;
+        border-radius: 8px;
+        letter-spacing: 0.1rem;
+        color: #fcc917;
+        background-color: #1f2a44;
+      }
+    }
+
+    .title {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    .specificationTitle {
+      font-size: 20px;
+    }
+
+    .specification {
+      font-size: 20px;
+    }
+
+    .priceList {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: calc(100% - 10px);
+      max-width: 400px;
+      min-height: 185px;
+
+      .top {
+        display: flex;
+        align-items: center;
+        height: 45px;
+
+        .price {
+          flex: 1;
+          font-size: 18px;
+
+          &.notAvailable {
+            opacity: 0.5;
+          }
+        }
+
+        .addFavorite,
+        .removeFavorite {
+          transition: 0.3s;
+          cursor: pointer;
+
+          &:hover {
+            color: #fcc917;
+          }
+        }
+
+        .notAvailable {
+          margin-left: 10px;
+          font-size: 18px;
+        }
+
+        .button {
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          margin-left: 10px;
+          border-radius: 8px;
+          font-size: 18px;
+          color: #fcc917;
+          background-color: #1f2a44;
+          transition: 0.3s;
+          cursor: pointer;
+
+          &:hover {
+            color: #1f2a44;
+            background-color: #fcc917;
+          }
+
+          &.disable {
+            opacity: 0.5;
+            pointer-events: none;
+          }
+        }
+      }
+
+      .productList {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .productWrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border-radius: 8px;
+          overflow: hidden;
+          cursor: pointer;
+
+          .productImage {
+            width: 60px;
+            height: 60px;
+            background-size: 90%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: rgba(255, 255, 255, 0.8);
+          }
+
+          .productLabel {
+            width: 100%;
+            padding: 5px 0;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: 0.3s;
+
+            &.active {
+              background-color: rgba(252, 201, 23, 0.8);
+            }
+          }
+
+          &:hover {
+            .productLabel {
+              background-color: #1f2a44;
+            }
+          }
+        }
+      }
+    }
+
+    .descriptionTitle {
+      font-size: 20px;
+    }
+
+    .description {
+      width: 70%;
+      white-space: pre-wrap;
+      font-size: 18px;
+
+      @media screen and (max-width: 1500px) {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .edit {
+    display: flex;
+    justify-content: space-between;
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      .icon {
+        font-size: 22px;
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px;
+        border-radius: 8px;
+        background-color: darken(rgb(255, 255, 255), 10);
+      }
+    }
+  }
+
+  .status {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    .input {
+      width: calc(50% - 5px);
+    }
+
+    .button {
+      width: calc(50% - 5px);
+    }
+  }
+
+  :global(.ant-descriptions-header) {
+    margin-bottom: 5px !important;
+  }
+
+  :global(.ant-descriptions-item) {
+    padding-bottom: 0 !important;
+  }
+
+  :global(.ant-descriptions-item-content) {
+    margin-bottom: 16px !important;
+  }
+
+  .divider::before,
+  .divider::after {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .products {
+    display: flex;
+    flex-direction: column;
+
+    .product {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      background-color: darken(rgb(255, 255, 255), 10);
+
+      .left {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+
+        .image {
+          width: 30px;
+          height: 30px;
+          background-size: 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+
+        .info {
+          display: flex;
+          flex-direction: column;
+
+          .category_type {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+          }
+        }
+      }
+
+      .right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        div {
+          display: flex;
+          justify-content: flex-end;
+          width: 60px;
+          word-wrap: break-word;
+        }
+      }
+    }
+
+    .notFound {
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+}

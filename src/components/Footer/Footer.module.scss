@@ -1,0 +1,122 @@
+.footer {
+  padding-top: 50px;
+  color: #a8aab1;
+  background-color: #1f2a43;
+
+  .container {
+    display: flex;
+    padding: 0 50px 35px 50px;
+
+    @media screen and (max-width: 1080px) {
+      padding: 0px 15px 35px 15px;
+    }
+    @media screen and (max-width: 780px) {
+      flex-direction: column;
+    }
+
+    @media screen and (max-width: 320px) {
+      padding: 0 5px 15px 5px;
+    }
+
+    .company {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      margin-right: 15px;
+
+      .logoWrapper {
+        display: block;
+
+        @media screen and (max-width: 780px) {
+          margin: 0 auto 0px;
+        }
+
+        .logo {
+          height: 26px;
+          width: 185px;
+        }
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        @media screen and (max-width: 780px) {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          margin: 10px 0;
+        }
+
+        @media screen and (max-width: 420px) {
+          font-size: 12px;
+        }
+
+        @media screen and (max-width: 305px) {
+          font-size: 10px;
+        }
+
+        .contacts {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+
+    .links {
+      display: inline-block;
+      flex: 1;
+      column-count: 2;
+
+      @media screen and (max-width: 1200px) {
+        column-count: 3;
+      }
+
+      .linkWrapper {
+        display: inline-block;
+        width: 100%;
+
+        .link {
+          display: inline-block;
+          padding-bottom: 10px;
+          font-size: 18px;
+          transition: 0.3s;
+
+          @media screen and (max-width: 860px) {
+            font-size: 16px;
+          }
+
+          @media screen and (max-width: 420px) {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  a,
+  p {
+    text-decoration: none;
+    line-height: 1.35;
+    transition: 0.3s;
+  }
+
+  a:hover {
+    color: #ffffff;
+  }
+
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    background-color: #182135;
+
+    @media screen and (max-width: 420px) {
+      font-size: 12px;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.menuData {
+  display: flex;
+  flex-direction: column;
+
+  .menuButton {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    color: #000;
+    cursor: pointer;
+
+    &:last-child {
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menuIcon {
+      color: #000;
+      margin: 0 10px;
+      font-size: 24px;
+      transition: 0.3s;
+    }
+
+    &:hover .menuIcon {
+      color: rgba(251, 202, 24, 0.8);
+    }
+  }
+}

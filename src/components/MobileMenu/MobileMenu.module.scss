@@ -1,0 +1,112 @@
+.mobileMenuWrapper {
+  position: fixed;
+  right: 0;
+  top: 80px;
+  display: flex;
+  width: 450px;
+  max-width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background-color: rgba(darken(#171f32, 5), 0.75);
+  backdrop-filter: blur(15px);
+  transform: translateX(10%);
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+
+  &.open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+    transition: 0.5s;
+  }
+
+  .mobileMenu {
+    width: 100%;
+    padding: 15px;
+    font-size: 20px;
+
+    @media screen and (max-width: 400px) {
+      font-size: 18px;
+    }
+
+    .search {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+
+      @media screen and (max-width: 530px) {
+        display: flex;
+      }
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+
+      .navItem {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        text-decoration: none;
+        transition: 0.3s;
+
+        &:last-child {
+          padding-bottom: 25px;
+        }
+
+        &:hover {
+          color: #fcc917;
+        }
+
+        .linkBorder {
+          width: 100%;
+          height: 2px;
+          background-color: #fcc917;
+          transform: scale(0);
+          transition: 0.3s;
+        }
+
+        &:hover .linkBorder {
+          transform: scale(100%);
+        }
+      }
+    }
+
+    .user {
+      width: 100%;
+      padding-top: 15px;
+
+      .menuButton {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          color: #fcc917;
+        }
+      }
+
+      .authorized {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .unauthorized {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+  }
+}

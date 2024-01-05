@@ -1,0 +1,90 @@
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+  min-height: calc(100vh - 80px);
+
+  @media screen and (max-width: 1050px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .wrapperLeft {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+    padding: 30px 50px;
+
+    @media screen and (max-width: 1050px) {
+      width: 100%;
+      padding: 30px;
+    }
+
+    @media screen and (max-width: 650px) {
+      padding: 30px 15px;
+    }
+
+    .headTitle {
+      font-size: 30px;
+      margin-bottom: 10px;
+
+      @media screen and (max-width: 650px) {
+        font-size: 20px;
+      }
+    }
+    .title {
+      font-size: 18px;
+    }
+
+    .inputSection {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+
+      @media screen and (max-width: 650px) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  .wrapperRight {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: 450px;
+    height: calc(100vh - 80px);
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    @media screen and (max-width: 1050px) {
+      width: 100%;
+    }
+
+    .title {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .cartProducts {
+      flex: 1;
+      min-height: 0;
+    }
+
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .payment {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .totalPrice {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

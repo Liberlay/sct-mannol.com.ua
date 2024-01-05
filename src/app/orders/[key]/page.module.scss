@@ -1,0 +1,50 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: calc(100vh - 80px);
+  font-size: 22px;
+
+  @media screen and (max-width: 425px) {
+    font-size: 16px;
+  }
+
+  .image {
+    width: 120px;
+    height: 120px;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+
+    @media screen and (max-width: 480px) {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  .title {
+    display: flex;
+    gap: 10px;
+
+    .id {
+      transition: 0.3s;
+
+      &:hover {
+        color: #fcc93b;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .link {
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+      color: #fcc93b;
+    }
+  }
+}

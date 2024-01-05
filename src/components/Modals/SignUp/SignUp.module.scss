@@ -1,0 +1,14 @@
+.data {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+
+  .firstAndLastName {
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: 630px) {
+      flex-direction: column;
+    }
+  }
+}

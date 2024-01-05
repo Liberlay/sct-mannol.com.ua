@@ -1,0 +1,28 @@
+.layout {
+  position: relative;
+  display: grid;
+  grid-template: auto / minmax(310px, 20%) minmax(auto, 80%);
+
+  @media screen and (max-width: 930px) {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    height: calc(100vh - 80px);
+    padding: 10px 0;
+    overflow: scroll;
+  }
+
+  .wrapper {
+    padding: 30px 50px;
+
+    @media screen and (max-width: 1500px) {
+      padding: 30px;
+    }
+
+    @media screen and (max-width: 930px) {
+      padding: 0 10px;
+    }
+  }
+}

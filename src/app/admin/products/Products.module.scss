@@ -1,0 +1,36 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: #fff;
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .category {
+        width: 350px;
+      }
+    }
+  }
+
+  .productImage {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+  }
+}

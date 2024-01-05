@@ -1,0 +1,67 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .divider::before,
+  .divider::after {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      width: calc(50% - 5px);
+
+      div {
+        padding: 5px;
+        border-radius: 8px;
+        background-color: darken(rgb(255, 255, 255), 10);
+      }
+    }
+
+    .select {
+      width: calc(50% - 5px);
+    }
+  }
+
+  .user {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .row {
+      display: flex;
+      gap: 10px;
+      width: calc(50% - 5px);
+    }
+  }
+
+  .delivery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .row {
+      display: flex;
+      gap: 10px;
+      width: calc(50% - 5px);
+
+      .select {
+        width: 100%;
+      }
+    }
+  }
+  .products {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

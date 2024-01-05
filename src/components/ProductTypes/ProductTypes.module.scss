@@ -1,0 +1,43 @@
+.simplebar {
+  :global(.simplebar-placeholder) {
+    height: 69px;
+  }
+
+  .types {
+    display: flex;
+    margin: 15px 0;
+
+    @media screen and (max-width: 650px) {
+      margin: 15px 10px;
+    }
+
+    .link {
+      position: relative;
+      padding: 10px;
+      margin-right: 10px;
+      border-radius: 8px;
+      background-color: rgba(#000, 0.25);
+      font-size: 16px;
+      font-weight: 500;
+      overflow: hidden;
+      text-decoration: none;
+      transition: 0.3s color ease;
+      cursor: pointer;
+
+      &:hover {
+        color: #fcc917;
+      }
+
+      &.active::after {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        flex: 1;
+        width: 100%;
+        height: 1px;
+        border-bottom: 2px solid #fcc917;
+        content: '';
+      }
+    }
+  }
+}
