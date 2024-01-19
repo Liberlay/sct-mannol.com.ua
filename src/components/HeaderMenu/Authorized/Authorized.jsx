@@ -18,12 +18,12 @@ export const Authorized = ({ setOpen }) => {
       className={styles.menuData}
       onClick={() => (setIsLogInModalOpen(!isLogInModalOpen), setOpen(false))}>
       {user.isAdmin && (
-        <Link href="/admin/orders" target="_blank" className={styles.menuButton} prefetch="false">
+        <Link href="/admin/orders" target="_blank" className={styles.menuButton} prefetch={false}>
           <AdminPanelSettingsIcon className={styles.menuIcon} />
           Адмін-панель
         </Link>
       )}
-      <Link className={styles.menuButton} href="/my-account/credentials" prefetch="false">
+      <Link className={styles.menuButton} href="/my-account/credentials" prefetch={false}>
         <ManageAccountsIcon className={styles.menuIcon} />
         {user.firstName} {user.lastName}
       </Link>
