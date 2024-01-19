@@ -66,8 +66,9 @@ export const MobileMenu = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
               <div className={styles.authorized}>
                 {user.isAdmin && (
                   <Link
-                    href="/admin"
+                    href="/admin/orders"
                     target="_blank"
+                    prefetch={false}
                     className={styles.menuButton}
                     onClick={() => setIsMobileMenuOpen(false)}>
                     <AdminPanelSettingsIcon className={styles.menuIcon} />
@@ -75,8 +76,9 @@ export const MobileMenu = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
                   </Link>
                 )}
                 <Link
+                  href="/my-account/credentials"
+                  prefetch={false}
                   className={styles.menuButton}
-                  href="/my-account"
                   onClick={() => setIsMobileMenuOpen(false)}>
                   <ManageAccountsIcon className={styles.menuIcon} />
                   {user.firstName} {user.lastName}
