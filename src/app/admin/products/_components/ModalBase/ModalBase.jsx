@@ -10,7 +10,7 @@ import { LoadingOutlined, PlusOutlined, DeleteOutlined } from '@ant-design/icons
 
 import styles from './ModalBase.module.scss'
 
-export const ModalBase = ({ product, updateProduct }) => {
+export const ModalBase = ({ product, updateProduct, type }) => {
   const primaryImage = product.options.find((element) => element.isPrimary === true)?.image
 
   return (
@@ -25,7 +25,8 @@ export const ModalBase = ({ product, updateProduct }) => {
               backgroundImage: primaryImage
                 ? `url(/static/images/products/${primaryImage})`
                 : undefined,
-            }}></div>
+            }}
+          ></div>
         )}
 
         <div className={styles.right}>
@@ -33,7 +34,7 @@ export const ModalBase = ({ product, updateProduct }) => {
             placeholder="Артикул"
             value={product.vendorCode}
             onChange={(event) => updateProduct({ ...product, vendorCode: event.target.value })}
-            disabled={product.vendorCode}
+            disabled={type === 'edit'}
           />
           <Select
             defaultValue="default"
@@ -61,7 +62,7 @@ export const ModalBase = ({ product, updateProduct }) => {
                 ([value, label]) => ({
                   value,
                   label,
-                }),
+                })
               ),
             ]}
             onChange={(value) =>
@@ -106,7 +107,8 @@ export const ModalBase = ({ product, updateProduct }) => {
                   key: uuidv4(),
                 })
               })
-            }>
+            }
+          >
             Додати варіант
           </Button>
           <div className={styles.defaultOption}>
@@ -139,7 +141,7 @@ export const ModalBase = ({ product, updateProduct }) => {
 
 const Option = ({ updateProduct, option, i }) => {
   const [fileList, setFileList] = useState(
-    option.image ? [{ thumbUrl: `/static/images/products/${option.image}` }] : [],
+    option.image ? [{ thumbUrl: `/static/images/products/${option.image}` }] : []
   )
   const [loading, setLoading] = useState(false)
   const handleChange = ({ fileList: newFileList }) => setFileList(newFileList)
@@ -167,11 +169,12 @@ const Option = ({ updateProduct, option, i }) => {
               .then((data) =>
                 updateProduct((product) => {
                   product.options[i].image = data.url
-                }),
+                })
               )
               .then(onSuccess)
               .catch(notifyError)
-          }}>
+          }}
+        >
           {loading ? <LoadingOutlined /> : <PlusOutlined />}
         </Upload>
       </div>

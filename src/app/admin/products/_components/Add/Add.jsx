@@ -72,8 +72,9 @@ export const Add = ({ isModalOpen, setIsModalOpen, requestProducts }) => {
       afterClose={afterClose}
       width={670}
       centered={true}
-      closeIcon={false}>
-      <ModalBase product={product} updateProduct={updateProduct} />
+      closeIcon={false}
+    >
+      <ModalBase product={product} updateProduct={updateProduct} type={'add'} />
     </Modal>
   )
 }

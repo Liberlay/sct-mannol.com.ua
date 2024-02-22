@@ -76,7 +76,8 @@ export const Edit = ({ isModalOpen, setIsModalOpen, urlKey, requestProducts }) =
           description="Ви впевнені що хочете видалити товар?"
           okText="Так"
           onConfirm={handleConfirmDelete}
-          cancelText="Ні">
+          cancelText="Ні"
+        >
           <Button danger>Видалити товар</Button>
         </Popconfirm>,
         <Button key="back" onClick={handleCancel}>
@@ -85,9 +86,10 @@ export const Edit = ({ isModalOpen, setIsModalOpen, urlKey, requestProducts }) =
         <Button key="submit" type="primary" onClick={handleOk}>
           Оновити
         </Button>,
-      ]}>
+      ]}
+    >
       {product ? (
-        <ModalBase product={product} updateProduct={updateProduct} />
+        <ModalBase product={product} updateProduct={updateProduct} type={'edit'} />
       ) : (
         <div className={styles.spinner}>
           <Spin indicator={<LoadingOutlined />} size="large" />

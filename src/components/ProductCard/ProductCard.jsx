@@ -31,7 +31,7 @@ export const ProductCard = ({
   const [isOpen, setIsOpen] = useState(false)
   const user = useSelector((state) => state.auth.user)
   const [selectedLabel, setSelectedLabel] = useState(
-    options.findIndex((element) => element.isPrimary === true),
+    options.findIndex((element) => element.isPrimary === true)
   )
   const favorites = useSelector((state) => state.favorites.products)
   useOnClickAway(listRef, isOpen, () => setIsOpen(!isOpen))
@@ -49,7 +49,7 @@ export const ProductCard = ({
         },
         optionKey: key,
         qty: 1,
-      }),
+      })
     )
   }
   return (
@@ -57,12 +57,16 @@ export const ProductCard = ({
       <div className={styles.wrapper} onMouseLeave={() => setIsOpen(false)}>
         <Link
           className={styles.link}
-          href={`/catalog/${category}/${urlKey}?option=${options[selectedLabel].key}`}>
+          href={`/catalog/${category}/${urlKey}${
+            !options[selectedLabel].isPrimary ? `?option=${options[selectedLabel].key}` : ''
+          }`}
+        >
           <div
             className={styles.img}
             style={{
               backgroundImage: `url(/static/images/products/${options[selectedLabel].image})`,
-            }}>
+            }}
+          >
             {!options[selectedLabel].available && (
               <div className={styles.notAvailable}>Немає в наявності</div>
             )}
@@ -75,10 +79,8 @@ export const ProductCard = ({
         </Link>
         <div className={styles.bottom}>
           <div
-            className={clsx(
-              styles.price,
-              !options[selectedLabel].available && styles.notAvailable,
-            )}>
+            className={clsx(styles.price, !options[selectedLabel].available && styles.notAvailable)}
+          >
             {options[selectedLabel].price}
             {' ₴'}
           </div>
@@ -109,10 +111,11 @@ export const ProductCard = ({
                 options[selectedLabel].image,
                 options[selectedLabel].label,
                 options[selectedLabel].price,
-                options[selectedLabel].key,
+                options[selectedLabel].key
               )
               toast('Товар додано до кошика', { toastId: `buy-${vendorCode}` })
-            }}>
+            }}
+          >
             <ShoppingCartCheckoutIcon className={styles.buttonIcon} />
             Купити
           </button>
@@ -140,7 +143,8 @@ export const ProductCard = ({
                     <div
                       key={i}
                       className={styles.item}
-                      onClick={() => (setSelectedLabel(i), setIsOpen(!isOpen))}>
+                      onClick={() => (setSelectedLabel(i), setIsOpen(!isOpen))}
+                    >
                       <div>{product.label}</div>
                       <div>
                         {product.price}

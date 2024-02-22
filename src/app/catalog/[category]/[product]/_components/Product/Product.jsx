@@ -5,7 +5,6 @@ import Slider from 'react-slick'
 import { toast } from 'react-toastify'
 import { useRef, useEffect } from 'react'
 import NoSsr from 'components/NoSsr/NoSsr'
-import { useRouter } from 'next/navigation'
 import { useIsFirstRender } from 'usehooks-ts'
 import { addCartItem } from 'store/slices/cartSlice'
 import { useDispatch, useSelector } from 'react-redux'
@@ -20,7 +19,6 @@ import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout'
 import styles from './Product.module.scss'
 
 export const Product = ({ product }) => {
-  const router = useRouter()
   const sliderRef = useRef()
   const dispatch = useDispatch()
   const isFirst = useIsFirstRender()
@@ -28,8 +26,8 @@ export const Product = ({ product }) => {
   const [productOption, setProductOption] = useQueryState(
     'option',
     parseAsStringEnum(product.options.map((option) => option.key)).withDefault(
-      product.options.find((option) => option.isPrimary).key,
-    ),
+      product.options.find((option) => option.isPrimary).key
+    )
   )
   const selectedOption = product.options.findIndex((option) => option.key === productOption)
   const favorites = useSelector((state) => state.favorites.products)
@@ -47,7 +45,7 @@ export const Product = ({ product }) => {
         },
         optionKey: key,
         qty: 1,
-      }),
+      })
     )
   }
 
@@ -82,7 +80,8 @@ export const Product = ({ product }) => {
                 key={i}
                 className={styles.image}
                 src={`/static/images/products/${item.image}`}
-                alt={`${product.title} ${item.label}`}></img>
+                alt={`${product.title} ${item.label}`}
+              ></img>
             ))}
           </Slider>
         </div>
@@ -100,8 +99,9 @@ export const Product = ({ product }) => {
               <div
                 className={clsx(
                   styles.price,
-                  !product.options[selectedOption].available && styles.notAvailable,
-                )}>
+                  !product.options[selectedOption].available && styles.notAvailable
+                )}
+              >
                 {product.options[selectedOption].price}
                 {' ₴'}
               </div>
@@ -132,17 +132,18 @@ export const Product = ({ product }) => {
               <button
                 className={clsx(
                   styles.button,
-                  !product.options[selectedOption].available && styles.disable,
+                  !product.options[selectedOption].available && styles.disable
                 )}
                 onClick={() => {
                   onChangeCartItem(
                     product.options[selectedOption].image,
                     product.options[selectedOption].label,
                     product.options[selectedOption].price,
-                    product.options[selectedOption].key,
+                    product.options[selectedOption].key
                   )
                   toast('Товар додано до кошика', { toastId: `buy-${product.vendorCode}` })
-                }}>
+                }}
+              >
                 <ShoppingCartCheckoutIcon />
                 Купити
               </button>
@@ -154,14 +155,17 @@ export const Product = ({ product }) => {
                   <div
                     key={i}
                     className={styles.productWrapper}
-                    onClick={() => setProductOption(obj.key)}>
+                    onClick={() => setProductOption(obj.key)}
+                  >
                     <div
                       className={styles.productImage}
                       style={{
                         backgroundImage: `url(/static/images/products/${obj.image})`,
-                      }}></div>
+                      }}
+                    ></div>
                     <div
-                      className={clsx(styles.productLabel, i === selectedOption && styles.active)}>
+                      className={clsx(styles.productLabel, i === selectedOption && styles.active)}
+                    >
                       {obj.label}
                     </div>
                   </div>

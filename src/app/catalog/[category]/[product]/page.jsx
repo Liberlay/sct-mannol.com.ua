@@ -1,13 +1,10 @@
-import { cache } from 'react'
-import { request } from 'utils/request'
 import { CATEGORIES } from 'utils/constants'
 import { Product } from './_components/Product/Product'
+import { cachedRequest } from 'utils/cachedRequest'
 
-const getProduct = cache(async (urlKey) => {
-  return await request.unauthorized({
-    url: `/products/${urlKey}`,
-  })
-})
+const getProduct = async (urlKey) => {
+  return await cachedRequest(`/products/${urlKey}`, 60)
+}
 
 export async function generateMetadata({ params }) {
   const product = await getProduct(params.product)

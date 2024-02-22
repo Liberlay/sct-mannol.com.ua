@@ -35,7 +35,7 @@ export const Sidebar = ({ children }) => {
     },
   ]
 
-  if (!user.isAdmin) redirect('/', 'replace')
+  if (!user?.isAdmin) redirect('/', 'replace')
 
   return (
     <ConfigProvider
@@ -43,7 +43,8 @@ export const Sidebar = ({ children }) => {
         token: {
           colorPrimary: '#e3b515',
         },
-      }}>
+      }}
+    >
       <Layout className={styles.wrapper} hasSider>
         <ConfigProvider
           theme={{
@@ -51,7 +52,8 @@ export const Sidebar = ({ children }) => {
             token: {
               colorPrimary: '#e3b515',
             },
-          }}>
+          }}
+        >
           <Layout.Sider className={styles.wrapperLeft} collapsible breakpoint="xl">
             <div className={styles.top}>
               <ShopOutlined
@@ -64,7 +66,8 @@ export const Sidebar = ({ children }) => {
               className={styles.menu}
               items={MenuItems}
               defaultSelectedKeys={[pathname.replace('/admin/', '')]}
-              mode="inline"></Menu>
+              mode="inline"
+            ></Menu>
           </Layout.Sider>
         </ConfigProvider>
         <div className={styles.wrapperRight}>{children}</div>
