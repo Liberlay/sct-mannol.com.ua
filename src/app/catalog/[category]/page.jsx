@@ -23,7 +23,7 @@ export default async function ProductsListPage({ params, searchParams }) {
           isEmpty
         )
       ),
-    60
+    10
   )
 
   return (

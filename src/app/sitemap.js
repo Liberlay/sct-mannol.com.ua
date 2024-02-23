@@ -7,7 +7,7 @@ export default async function sitemap() {
   const products = []
   const lastMod = '2024-02-22T02:50:25.145Z'
   do {
-    const res = await cachedRequest(`/products?page=${page}`, 10)
+    const res = await cachedRequest(`/products?page=${page}`, 3600)
     page += 1
     total = res.total
     products.push(...res.data)

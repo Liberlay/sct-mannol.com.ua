@@ -3,7 +3,7 @@ import { Product } from './_components/Product/Product'
 import { cachedRequest } from 'utils/cachedRequest'
 
 const getProduct = async (urlKey) => {
-  return await cachedRequest(`/products/${urlKey}`, 60)
+  return await cachedRequest(`/products/${urlKey}`, 10)
 }
 
 export async function generateMetadata({ params }) {
