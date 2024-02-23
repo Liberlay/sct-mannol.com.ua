@@ -1,12 +1,10 @@
 import { Main } from './Main'
-import { request } from 'utils/request'
+import { cachedRequest } from 'utils/cachedRequest'
 
 export const dynamic = 'force-dynamic'
 
 export default async function MainPage() {
-  const products = await request.unauthorized({
-    url: '/products/presentation',
-  })
+  const products = await cachedRequest('/products/presentation', 10)
 
   return <Main products={products} />
 }
