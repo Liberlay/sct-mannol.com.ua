@@ -8,7 +8,6 @@ import ClearIcon from '@mui/icons-material/Clear'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 
 import styles from './CartProducts.module.scss'
-import NoSsr from 'components/NoSsr/NoSsr'
 
 export const CartProducts = () => {
   const dispatch = useDispatch()
@@ -21,12 +20,11 @@ export const CartProducts = () => {
           className={styles.image}
           style={{
             backgroundImage: `url(/static/images/products/${item.details.image})`,
-          }}></div>
+          }}
+        ></div>
       </div>
       <div className={styles.middle}>
-        <Link
-          href={`/catalog/${item.details.category}/${item.details.urlKey}`}
-          style={{ textDecoration: 'none' }}>
+        <Link href={`/products/${item.details.urlKey}`} style={{ textDecoration: 'none' }}>
           <div className={styles.title}>{item.details.title}</div>
         </Link>
         <div className={styles.bottom}>
@@ -43,7 +41,7 @@ export const CartProducts = () => {
                     vendorCode: item.vendorCode,
                     optionKey: item.optionKey,
                     value: -1,
-                  }),
+                  })
                 )
               }
             />
@@ -56,7 +54,7 @@ export const CartProducts = () => {
                     vendorCode: item.vendorCode,
                     optionKey: item.optionKey,
                     value: +1,
-                  }),
+                  })
                 )
               }
             />

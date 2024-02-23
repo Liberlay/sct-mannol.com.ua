@@ -57,7 +57,7 @@ export const ProductCard = ({
       <div className={styles.wrapper} onMouseLeave={() => setIsOpen(false)}>
         <Link
           className={styles.link}
-          href={`/catalog/${category}/${urlKey}${
+          href={`/products/${urlKey}${
             !options[selectedLabel].isPrimary ? `?option=${options[selectedLabel].key}` : ''
           }`}
         >

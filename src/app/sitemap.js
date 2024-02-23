@@ -44,7 +44,7 @@ export default async function sitemap() {
       priority: 0.9,
     })),
     ...products.map((product) => ({
-      url: `https://sct-mannol.com.ua/catalog/${product.category}/${product.urlKey}`,
+      url: `https://sct-mannol.com.ua/products/${product.urlKey}`,
       lastModified: product.lastModified,
       changeFrequency: 'weekly',
       priority: 0.6,

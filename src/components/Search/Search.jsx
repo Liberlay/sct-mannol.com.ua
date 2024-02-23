@@ -51,13 +51,14 @@ export const Search = ({ showSearch, setIsMobileMenuOpen }) => {
         .then((data) => setProductSearch(data))
         .catch(notifyError)
     }, 1000),
-    [],
+    []
   )
 
   return (
     <div
       ref={searchRef}
-      className={clsx(styles.search, isSearchVisible && styles.active, value && styles.hasValue)}>
+      className={clsx(styles.search, isSearchVisible && styles.active, value && styles.hasValue)}
+    >
       <div className={styles.wrapper}>
         <div className={styles.iconWrapper} onClick={() => setIsSearchVisible(!isSearchVisible)}>
           <SearchIcon className={styles.icon} />
@@ -87,26 +88,25 @@ export const Search = ({ showSearch, setIsMobileMenuOpen }) => {
               <div
                 key={i}
                 className={styles.tip}
-                onClick={() => (setValue(product + ' '), inputRef.current.focus())}>
+                onClick={() => (setValue(product + ' '), inputRef.current.focus())}
+              >
                 <div className={styles.title}>{product}</div>
               </div>
             ) : (
-              <Link
-                key={i}
-                href={`/catalog/${product.category}/${product.urlKey}`}
-                className={styles.link}>
+              <Link key={i} href={`/products/${product.urlKey}`} className={styles.link}>
                 <div className={styles.tip} onClick={() => setIsSearchVisible(false)}>
                   <div className={styles.imageWrapper}>
                     <div
                       className={styles.image}
                       style={{
                         backgroundImage: `url(/static/images/products/${product.image})`,
-                      }}></div>
+                      }}
+                    ></div>
                   </div>
                   <div className={styles.title}>{product.title}</div>
                 </div>
               </Link>
-            ),
+            )
           )}
         </SimpleBar>
       </div>

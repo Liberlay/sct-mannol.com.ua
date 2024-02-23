@@ -13,12 +13,13 @@ export const RelatedProducts = ({ related }) => {
         {related.map((product, i) => (
           <div key={i} className={styles.productCard}>
             <div className={styles.imageWrapper}>
-              <Link href={`/catalog/${product.category}/${product.urlKey}`}>
+              <Link href={`/products/${product.urlKey}`}>
                 <div
                   className={styles.image}
                   style={{
                     backgroundImage: `url(/static/images/products/${product.image})`,
-                  }}></div>
+                  }}
+                ></div>
               </Link>
             </div>
             <div className={styles.bottom}>

@@ -4,18 +4,19 @@ import { useState } from 'react'
 import { request } from 'utils/request'
 import { Sort } from 'components/Sort/Sort'
 import { Skeleton } from 'components/Skeleton'
+import { Pagination } from '../Pagination/Pagination'
 import { useIsClient, useUpdateEffect } from 'usehooks-ts'
-import { useParams, useSearchParams } from 'next/navigation'
 import { ProductCard } from 'components/ProductCard/ProductCard'
 import { ProductTypes } from 'components/ProductTypes/ProductTypes'
+import { useParams, useRouter, useSearchParams } from 'next/navigation'
 
 import AutorenewIcon from '@mui/icons-material/Autorenew'
 
 import styles from './Products.module.scss'
-import { Pagination } from '../Pagination/Pagination'
 
 export const Products = ({ data, total }) => {
   const isClient = useIsClient()
+  const router = useRouter()
   const searchParams = useSearchParams()
   const type = searchParams.get('type')
   const sort = searchParams.get('sort') ?? '-popularity'
@@ -23,7 +24,7 @@ export const Products = ({ data, total }) => {
   const totalPages = Math.ceil(total / 20)
   const [isLoading, setIsLoading] = useState(false)
   const { category } = useParams()
-  const [currPage, setCurrPage] = useState(1)
+  const [currPage, setCurrPage] = useState(+page)
   const [products, setProducts] = useState(data)
 
   useUpdateEffect(() => {
@@ -72,12 +73,18 @@ export const Products = ({ data, total }) => {
         </div>
         <div className={styles.pagination}>
           {!(products.length >= total) && (
-            <div className={styles.loadMore} onClick={() => setCurrPage(currPage + 1)}>
+            <div
+              className={styles.loadMore}
+              onClick={() => (
+                setCurrPage(currPage + 1),
+                window.history.pushState(null, '', `?page=${currPage + 1}`)
+              )}
+            >
               <AutorenewIcon className={styles.icon} />
               Завантажити ще
             </div>
           )}
-          <Pagination page={+page} totalPages={totalPages} />
+          <Pagination page={currPage} totalPages={totalPages} />
         </div>
       </div>
     </>

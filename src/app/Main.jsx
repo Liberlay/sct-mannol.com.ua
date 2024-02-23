@@ -99,7 +99,8 @@ export const Main = ({ products }) => {
             <div
               key={i}
               className={clsx(styles.navItem, slideIndex === i && styles.active)}
-              onClick={() => sliderRef.current.slickGoTo(i)}></div>
+              onClick={() => sliderRef.current.slickGoTo(i)}
+            ></div>
           ))}
         </div>
       </div>
@@ -115,7 +116,8 @@ export const Main = ({ products }) => {
               <div key={i} className={styles.item}>
                 <Link
                   className={styles.link}
-                  href={`/catalog/${product.category}/${product.urlKey}?option=${product.optionKey}`}>
+                  href={`/products/${product.urlKey}?option=${product.optionKey}`}
+                >
                   <div className={styles.imageWrapper}>
                     <img
                       className={styles.image}
@@ -144,14 +146,16 @@ export const Main = ({ products }) => {
           loop
           controls
           poster="/assets/images/main/thumbnail.webp"
-          onClick={() => videoRef.current.play()}>
+          onClick={() => videoRef.current.play()}
+        >
           <source src="/assets/images/main/video.mp4" type="video/mp4" />
           "Your browser does not support the video tag."
         </video>
       </div>
       <div
         ref={bannerRef}
-        className={clsx(styles.scrollElement, bannerAnimation?.isIntersecting && styles.active)}>
+        className={clsx(styles.scrollElement, bannerAnimation?.isIntersecting && styles.active)}
+      >
         <Link href="https://sct-ester.com/ru" target="_blank">
           <img className={styles.ester} src="/assets/images/main/ester.webp" alt="Банер Ester" />
         </Link>
@@ -163,7 +167,7 @@ export const Main = ({ products }) => {
             ref={firstImageRef}
             className={clsx(
               styles.scrollElement,
-              firstImageAnimation?.isIntersecting && styles.active,
+              firstImageAnimation?.isIntersecting && styles.active
             )}
             src="/assets/images/main/news/news_1.webp"
             alt="Новини"
@@ -172,7 +176,7 @@ export const Main = ({ products }) => {
             ref={secondImageRef}
             className={clsx(
               styles.scrollElement,
-              secondImageAnimation?.isIntersecting && styles.active,
+              secondImageAnimation?.isIntersecting && styles.active
             )}
             src="/assets/images/main/news/news_2.webp"
             alt="Новини"
